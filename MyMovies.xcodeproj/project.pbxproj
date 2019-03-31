@@ -13,6 +13,9 @@
 		02A9BA90224FE27000BF739A /* MyMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02A9BA8E224FE27000BF739A /* MyMovies.xcdatamodeld */; };
 		02A9BA92224FE27200BF739A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A9BA91224FE27200BF739A /* Assets.xcassets */; };
 		02A9BA95224FE27200BF739A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02A9BA93224FE27200BF739A /* LaunchScreen.storyboard */; };
+		02A9BA9D224FE8F700BF739A /* MovieDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9BA9C224FE8F700BF739A /* MovieDAO.swift */; };
+		02A9BA9F225004A600BF739A /* OmdbAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9BA9E225004A600BF739A /* OmdbAPIService.swift */; };
+		02A9BAA122500AE500BF739A /* MovieVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9BAA022500AE500BF739A /* MovieVO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		02A9BA91224FE27200BF739A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02A9BA94224FE27200BF739A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02A9BA96224FE27200BF739A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02A9BA9C224FE8F700BF739A /* MovieDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDAO.swift; sourceTree = "<group>"; };
+		02A9BA9E225004A600BF739A /* OmdbAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmdbAPIService.swift; sourceTree = "<group>"; };
+		02A9BAA022500AE500BF739A /* MovieVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +65,13 @@
 				02A9BA87224FE27000BF739A /* AppDelegate.swift */,
 				02A9BA89224FE27000BF739A /* ViewController.swift */,
 				02A9BA8B224FE27000BF739A /* Main.storyboard */,
+				02A9BA9C224FE8F700BF739A /* MovieDAO.swift */,
 				02A9BA91224FE27200BF739A /* Assets.xcassets */,
 				02A9BA93224FE27200BF739A /* LaunchScreen.storyboard */,
 				02A9BA96224FE27200BF739A /* Info.plist */,
 				02A9BA8E224FE27000BF739A /* MyMovies.xcdatamodeld */,
+				02A9BA9E225004A600BF739A /* OmdbAPIService.swift */,
+				02A9BAA022500AE500BF739A /* MovieVO.swift */,
 			);
 			path = MyMovies;
 			sourceTree = "<group>";
@@ -139,6 +148,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				02A9BA8A224FE27000BF739A /* ViewController.swift in Sources */,
+				02A9BA9F225004A600BF739A /* OmdbAPIService.swift in Sources */,
+				02A9BA9D224FE8F700BF739A /* MovieDAO.swift in Sources */,
+				02A9BAA122500AE500BF739A /* MovieVO.swift in Sources */,
 				02A9BA90224FE27000BF739A /* MyMovies.xcdatamodeld in Sources */,
 				02A9BA88224FE27000BF739A /* AppDelegate.swift in Sources */,
 			);
