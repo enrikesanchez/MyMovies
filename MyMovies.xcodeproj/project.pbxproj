@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02630CE82251674B00E8049F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02630CE72251674B00E8049F /* DetailViewController.swift */; };
 		02A9BA88224FE27000BF739A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9BA87224FE27000BF739A /* AppDelegate.swift */; };
 		02A9BA8A224FE27000BF739A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9BA89224FE27000BF739A /* ViewController.swift */; };
 		02A9BA8D224FE27000BF739A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02A9BA8B224FE27000BF739A /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02630CE72251674B00E8049F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		02A9BA84224FE27000BF739A /* MyMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A9BA87224FE27000BF739A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02A9BA89224FE27000BF739A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				02A9BA8E224FE27000BF739A /* MyMovies.xcdatamodeld */,
 				02A9BA9E225004A600BF739A /* OmdbAPIService.swift */,
 				02A9BAA022500AE500BF739A /* MovieVO.swift */,
+				02630CE72251674B00E8049F /* DetailViewController.swift */,
 			);
 			path = MyMovies;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				02A9BAA122500AE500BF739A /* MovieVO.swift in Sources */,
 				02A9BA90224FE27000BF739A /* MyMovies.xcdatamodeld in Sources */,
 				02A9BA88224FE27000BF739A /* AppDelegate.swift in Sources */,
+				02630CE82251674B00E8049F /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

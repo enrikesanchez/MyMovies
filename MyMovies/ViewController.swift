@@ -8,18 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: Outlets
     @IBOutlet weak var moviesTableView: UITableView!
     
     //MARK: Properties
     let movieDAO = MovieDAO()
     let omdbAPIService = OmdbAPIService()
-
+    
     //MARK: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewMovieDetail" {
+            if let indexPath = moviesTableView.indexPathForSelectedRow {
+                let selectedMovie: Movie = movieDAO.findAll()[indexPath.row]
+                self.omdbAPIService.searchById(selectedMovie.imdbId!) { (movieVO) in
+                    let viewDetailController = segue.destination as! DetailViewController
+                    viewDetailController.movie = movieVO
+                }
+            }
+        }
     }
     
     //MARK: UITableViewDataSource
@@ -39,10 +52,18 @@ class ViewController: UIViewController, UITableViewDataSource {
                 cell.textLabel?.text = movieVO.title
             }
         }
-
+        
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt  indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let movie: Movie = movieDAO.findAll()[indexPath.row]
+            movieDAO.deleteMovie(movie: movie)
+            moviesTableView.reloadData()
+        }
+    }
+    
     //MARK: Actions
     @IBAction func addNewMovie(_ sender: UIBarButtonItem) {
         showRequestMovieTitleController()
@@ -67,6 +88,10 @@ class ViewController: UIViewController, UITableViewDataSource {
                     DispatchQueue.main.async {
                         self.moviesTableView.reloadData()
                     }
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Movie does not exist", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
@@ -78,4 +103,3 @@ class ViewController: UIViewController, UITableViewDataSource {
         present(movieTitleAlertController, animated: false, completion: nil)
     }
 }
-

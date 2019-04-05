@@ -13,4 +13,5 @@ class MovieVO {
     var title: String = ""
     var year: String = ""
     var rated: String = ""
+    var poster: String = ""
 }

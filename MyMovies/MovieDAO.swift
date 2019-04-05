@@ -35,6 +35,7 @@ class MovieDAO: NSObject {
     func insertMovie(imdbId: String) {
         let movie: Movie = NSEntityDescription.insertNewObject(forEntityName: "Movie", into: managedObjectContext) as! Movie
         movie.imdbId = imdbId
+        movie.insertedDate = Date()
         
         do {
             try managedObjectContext.save()
@@ -43,7 +44,7 @@ class MovieDAO: NSObject {
         }
     }
     
-    func deleteMovie(imdbId: String) {
-        
+    func deleteMovie(movie: Movie) {
+        managedObjectContext.delete(movie)
     }
 }

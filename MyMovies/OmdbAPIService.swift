@@ -60,12 +60,46 @@ class OmdbAPIService: NSObject {
     }
     
     func searchById(_ idToSearch: String, handler: @escaping (MovieVO) -> Void) {
-        let movie = MovieVO()
-        movie.imdbId = idToSearch
-        movie.rated = "G"
-        movie.year = "1982"
-        movie.title = "Game of Thrones"
-        handler(movie)
+        let omdbapiEndpoint: String = "https://www.omdbapi.com/?i=\(idToSearch)&apikey=3ba2fd78"
+        
+        guard let url = URL(string: omdbapiEndpoint) else {
+            NSLog("Error creating URL %@", omdbapiEndpoint)
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url)
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) in
+            guard error == nil else {
+                print("Error calling URL")
+                print(error!)
+                return
+            }
+            
+            guard let responseData = data else {
+                print("Error data is empty")
+                return
+            }
+            
+            do {
+                guard let omdbapiResponse = try JSONSerialization.jsonObject(with: responseData, options: [])
+                    as? [String: Any] else {
+                        print("Error trying to convert data to JSON")
+                        return
+                }
+                
+                let movie = self.buildMovieFromAPIResponse(omdbapiResponse)
+                
+                handler(movie)
+            } catch  {
+                print("Error trying to convert data to JSON")
+                return
+            }
+        }
+        task.resume()
     }
     
     private func buildMovieFromAPIResponse(_ omdbapiResponse: [String: Any]) -> MovieVO {
@@ -85,6 +119,10 @@ class OmdbAPIService: NSObject {
         
         if let rated = omdbapiResponse["Rated"] as? String {
             movie.rated = rated
+        }
+        
+        if let poster = omdbapiResponse["Poster"] as? String {
+            movie.poster = poster
         }
         
         return movie
